@@ -6,13 +6,19 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prisma-generate": "prisma generate --schema=./src/lib/prisma/schema.prisma"
   },
   "dependencies": {
     "@next/font": "13.1.5",
+    "@pothos/core": "^3.24.0",
+    "@pothos/plugin-prisma": "^3.40.1",
     "@prisma/client": "^4.9.0",
     "eslint": "8.32.0",
     "eslint-config-next": "13.1.5",
+    "graphql": "^16.6.0",
+    "graphql-scalars": "^1.20.1",
+    "graphql-yoga": "^3.3.0",
     "next": "13.1.5",
     "prisma": "^4.9.0",
     "react": "18.2.0",
@@ -27,5 +33,8 @@
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.4"
+  },
+  "prisma": {
+    "schema": "./src/lib/prisma/schema.prisma"
   }
 }
