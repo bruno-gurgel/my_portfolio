@@ -24,4 +24,6 @@ builder.queryType({
   }),
 });
 
+builder.mutationType({});
+
 builder.addScalarType("Date", DateResolver, {});

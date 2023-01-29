@@ -12,7 +12,7 @@ builder.prismaObject("User", {
     updatedAt: t.expose("updatedAt", {
       type: "Date",
     }),
-    Comment: t.relation("Comment"),
+    comments: t.relation("comments"),
   }),
 });
 

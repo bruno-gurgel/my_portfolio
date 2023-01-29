@@ -21,7 +21,8 @@ model User {
   posts     Post[]
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
-  Comment   Comment[]
+  comments  Comment[]
+  admin     Boolean   @default(false)
 }
 
 model Post {
@@ -34,7 +35,7 @@ model Post {
   content   String
   author    User      @relation(fields: [authorId], references: [id])
   authorId  String    @db.ObjectId
-  Comment   Comment[]
+  comments  Comment[]
 }
 
 model Comment {
@@ -53,4 +54,5 @@ model Project {
   name      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  link      String
 }

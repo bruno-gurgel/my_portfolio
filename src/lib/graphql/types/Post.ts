@@ -14,7 +14,7 @@ builder.prismaObject("Post", {
       type: "Date",
     }),
     author: t.relation("author"),
-    Comment: t.relation("Comment"),
+    comments: t.relation("comments"),
   }),
 });
 
@@ -22,5 +22,30 @@ builder.queryField("posts", (t) =>
   t.prismaField({
     type: ["Post"],
     resolve: (query) => prisma.post.findMany(),
+  })
+);
+
+builder.mutationField("createPost", (t) =>
+  t.prismaField({
+    type: "Post",
+    args: {
+      title: t.arg.string({ required: true }),
+      content: t.arg.string({ required: true }),
+      slug: t.arg.string({ required: true }),
+      authorId: t.arg.id({ required: true }),
+    },
+    resolve: async (query, _parent, args, ctx) => {
+      const { title, content, slug, authorId } = args;
+
+      return prisma.post.create({
+        ...query,
+        data: {
+          title,
+          content,
+          slug,
+          authorId: String(authorId),
+        },
+      });
+    },
   })
 );
