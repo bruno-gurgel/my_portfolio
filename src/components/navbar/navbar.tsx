@@ -1,15 +1,13 @@
 "use client";
 
+import useGetPath from "@/hooks/useGetPath";
 import { isLinkActive } from "@/lib/utils";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
 import LanguageDropdown from "./LanguageDropdown";
 import NavbarSearch from "./searchNavbar";
 
 export default function Navbar() {
-  const currPath = usePathname();
-
+  const currPath = useGetPath();
   const menuItems = [
     {
       label: "Home",
@@ -24,8 +22,8 @@ export default function Navbar() {
       link: "/posts",
     },
     {
-      label: "Contact",
-      link: "/contact",
+      label: "About",
+      link: "/about",
     },
   ];
 

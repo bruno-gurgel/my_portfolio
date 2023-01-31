@@ -1,5 +1,10 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { usePopper } from "react-popper";
+import useTranslation from "next-translate/useTranslation";
 
 export default function LanguageDropdown({}: {}) {
   const [dropdownIsOpen, setDropdownIsOpen] = useState(false);
@@ -10,16 +15,27 @@ export default function LanguageDropdown({}: {}) {
   );
   const { styles, attributes } = usePopper(referenceElement, popperElement);
 
+  const currPath = usePathname();
+  const rest = useTranslation("common");
+
+  const { lang: language } = rest;
+
   const languagesDropdown = [
     {
       label: "English (US)",
       iconClass: "fi-us",
+      locale: "en",
     },
     {
       label: "Portuguese (Brazil)",
       iconClass: "fi-br",
+      locale: "pt-BR",
     },
   ];
+
+  const currLang = languagesDropdown.find((lang) => lang.locale === language);
+
+  console.log({ currLang, language, rest });
 
   return (
     <div className="flex items-center md:order-3 z-10">
@@ -29,8 +45,10 @@ export default function LanguageDropdown({}: {}) {
         className="inline-flex items-center justify-center px-4 py-2 text-sm text-gray-500 rounded-lg cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"
         ref={setReferenceElement}
       >
-        <span className="fi fi-us  h-3.5 w-3.5 rounded-full mr-2"></span>
-        English (US)
+        <span
+          className={`fi ${currLang?.iconClass}  h-3.5 w-3.5 rounded-full mr-2`}
+        ></span>
+        {currLang?.label}
       </button>
       {dropdownIsOpen ? (
         <div
@@ -42,10 +60,11 @@ export default function LanguageDropdown({}: {}) {
           <ul className="py-2" role="none">
             {languagesDropdown.map((lang) => (
               <li key={lang.label}>
-                <a
-                  href="#"
+                <Link
+                  href={currPath || "/"}
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
-                  role="menuitem"
+                  locale={lang.locale}
+                  key={lang.locale}
                 >
                   <div className="inline-flex items-center">
                     <span
@@ -53,7 +72,7 @@ export default function LanguageDropdown({}: {}) {
                     ></span>
                     {lang.label}
                   </div>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
