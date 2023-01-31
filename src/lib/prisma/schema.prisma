@@ -50,9 +50,11 @@ model Comment {
 }
 
 model Project {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  name      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  link      String
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  link        String
+  cover       String
+  description String
 }

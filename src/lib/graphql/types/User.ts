@@ -19,7 +19,6 @@ builder.prismaObject("User", {
 builder.queryField("users", (t) =>
   t.prismaField({
     type: ["User"],
-    resolve: (query) =>
-      console.log({ query }) || prisma.user.findMany({ ...query }),
+    resolve: (query) => prisma.user.findMany({ ...query }),
   })
 );
