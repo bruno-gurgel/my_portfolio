@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Roboto_Mono } from "@next/font/google";
-import Navbar from "@/components/navbar/navbar";
 
 const robotoHeading = Roboto_Mono({
   subsets: ["latin"],
@@ -9,7 +8,6 @@ const robotoHeading = Roboto_Mono({
 export default function Home() {
   return (
     <main>
-      <Navbar />
       <div>
         <Image
           className="w-full h-auto z-0"

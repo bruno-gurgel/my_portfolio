@@ -1,5 +1,6 @@
 "use client";
 
+import Navbar from "@/components/navbar/navbar";
 import ApolloProvider from "@/lib/apollo-client/apollo-provider";
 import "./globals.css";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
@@ -17,7 +18,10 @@ export default function RootLayout({
       */}
       <head />
       <body>
-        <ApolloProvider>{children}</ApolloProvider>
+        <ApolloProvider>
+          <Navbar />
+          {children}
+        </ApolloProvider>
       </body>
     </html>
   );
