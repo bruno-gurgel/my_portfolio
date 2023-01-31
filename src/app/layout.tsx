@@ -4,6 +4,7 @@ import Navbar from "@/components/navbar/navbar";
 import ApolloProvider from "@/lib/apollo-client/apollo-provider";
 import "./globals.css";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
+import { AnalyticsWrapper } from "./components/analytics";
 
 export default function RootLayout({
   children,
@@ -21,6 +22,7 @@ export default function RootLayout({
         <ApolloProvider>
           <Navbar />
           {children}
+          <AnalyticsWrapper />
         </ApolloProvider>
       </body>
     </html>
