@@ -44,6 +44,6 @@
     "tailwindcss": "^3.2.4"
   },
   "prisma": {
-    "schema": "./src/lib/prisma/schema.prisma"
+    "schema": "./lib/prisma/schema.prisma"
   }
 }
