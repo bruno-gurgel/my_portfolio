@@ -1,5 +1,3 @@
-const nextTranslate = require("next-translate");
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
@@ -16,4 +14,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextTranslate(nextConfig);
+module.exports = nextConfig;

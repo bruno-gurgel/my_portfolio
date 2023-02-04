@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { usePopper } from "react-popper";
-import useTranslation from "next-translate/useTranslation";
 
 export default function LanguageDropdown({}: {}) {
   const [dropdownIsOpen, setDropdownIsOpen] = useState(false);
@@ -16,9 +15,6 @@ export default function LanguageDropdown({}: {}) {
   const { styles, attributes } = usePopper(referenceElement, popperElement);
 
   const currPath = usePathname();
-  const rest = useTranslation("common");
-
-  const { lang: language } = rest;
 
   const languagesDropdown = [
     {
@@ -33,9 +29,9 @@ export default function LanguageDropdown({}: {}) {
     },
   ];
 
-  const currLang = languagesDropdown.find((lang) => lang.locale === language);
-
-  console.log({ currLang, language, rest });
+  //const currLang = languagesDropdown.find((lang) => lang.locale === language);
+  const currLang = languagesDropdown[0];
+  //console.log({ currLang, language, rest });
 
   return (
     <div className="flex items-center md:order-3 z-10">
