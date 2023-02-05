@@ -17,6 +17,12 @@ export default function RootLayout({
         <head /> will contain the components returned by the nearest parent
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
+      <title>Bruno Gurgel</title>
+      <meta
+        name="description"
+        content="Bruno Gurgel's personal website. I'm a software engineer, currently working at @smarthis."
+      />
+      <meta property="og:title" content="Bruno Gurgel's personal website" />
       <head />
       <body>
         <ApolloProvider>
