@@ -1,3 +1,5 @@
+"use client";
+
 import { Roboto_Mono } from "@next/font/google";
 import Link from "next/link";
 
@@ -10,25 +12,27 @@ export default function Home() {
     <main>
       <div className="flex flex-col mt-48 ml-48 h-full items-start">
         <h1
-          className={`${robotoHeading.className} mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white`}
+          className={`${robotoHeading.className} mb-4 text-4xl font-extrabold leading-none tracking-tight  md:text-5xl lg:text-6xl :text-white `}
         >
           Hey, I'm Bruno
         </h1>
-        <h3 className="mb-6 text-lg font-normal text-gray-500 lg:text-xl  dark:text-gray-400">
+        <h3 className="mb-6 text-lg font-normal text-gray-400 lg:text-xl">
           I'm a software engineer at Smarthis, where we aim to transform the
           automation business.
         </h3>
-        <Link
-          href="/posts"
-          className="inline-flex items-center px-4 py-2 text-base font-medium leading-6 text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo active:bg-indigo-700 mb-4"
-        >
-          See my posts
+        <Link href="/posts" className="mb-4">
+          <button className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium  rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white text-white focus:ring-4 focus:outline-none  focus:ring-blue-800">
+            <span className="relative px-5 py-2.5 transition-all ease-in duration-75  bg-gray-900 rounded-md group-hover:bg-opacity-0">
+              See my posts
+            </span>
+          </button>{" "}
         </Link>
-        <Link
-          className="inline-flex items-center px-4 py-2 text-base font-medium leading-6 text-indigo-700 transition duration-150 ease-in-out bg-indigo-100 border border-transparent rounded-md shadow-sm hover:text-indigo-600 focus:outline-none focus:shadow-outline-indigo active:bg-indigo-200"
-          href="/projects"
-        >
-          See my projects
+        <Link href="/projects">
+          <button className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium  rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 text-white hover:text-gray-900 focus:ring-4 focus:outline-none  focus:ring-lime-800">
+            <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-gray-900 rounded-md group-hover:bg-opacity-0">
+              See my projects
+            </span>
+          </button>{" "}
         </Link>
       </div>
     </main>
