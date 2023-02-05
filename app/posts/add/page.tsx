@@ -9,16 +9,19 @@ const AddPostMutation = gql`
     $content: String!
     $slug: String!
     $authorId: ID!
+    $description: String!
   ) {
     createPost(
       title: $title
       content: $content
       slug: $slug
       authorId: $authorId
+      description: $description
     ) {
       title
       content
       slug
+      description
       author {
         id
       }
@@ -30,6 +33,7 @@ export default function AddPost() {
   const [formState, setFormState] = useState({
     title: "",
     content: "",
+    description: "",
   });
   const [addPost, { data, loading, error }] = useMutation(AddPostMutation);
 
@@ -49,6 +53,14 @@ export default function AddPost() {
       placeholder: "Content",
       onChange: (e: ChangeEvent<HTMLInputElement>) =>
         setFormState({ ...formState, content: e.target.value }),
+    },
+    {
+      name: "description",
+      label: "Description",
+      type: "textarea",
+      placeholder: "Description",
+      onChange: (e: ChangeEvent<HTMLInputElement>) =>
+        setFormState({ ...formState, description: e.target.value }),
     },
   ];
 
@@ -76,12 +88,13 @@ export default function AddPost() {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const { title, content } = formState;
+    const { title, content, description } = formState;
     const variables = {
       title,
       content,
       slug: title.toLowerCase().replace(/ /g, "-"),
       authorId: "63d1b69d2d43d20298db4a7d",
+      description,
     };
     addPost({ variables });
   }
