@@ -1,24 +1,24 @@
-import { builder } from "../builder";
+import { builder } from '../builder'
 
-builder.prismaObject("User", {
+builder.prismaObject('User', {
   fields: (t) => ({
-    id: t.exposeID("id"),
-    name: t.exposeString("name", { nullable: true }),
-    email: t.exposeString("email"),
-    posts: t.relation("posts"),
-    createdAt: t.expose("createdAt", {
-      type: "Date",
+    id: t.exposeID('id'),
+    name: t.exposeString('name', { nullable: true }),
+    email: t.exposeString('email'),
+    posts: t.relation('posts'),
+    createdAt: t.expose('createdAt', {
+      type: 'Date'
     }),
-    updatedAt: t.expose("updatedAt", {
-      type: "Date",
+    updatedAt: t.expose('updatedAt', {
+      type: 'Date'
     }),
-    comments: t.relation("comments"),
-  }),
-});
-
-builder.queryField("users", (t) =>
-  t.prismaField({
-    type: ["User"],
-    resolve: (query) => prisma.user.findMany({ ...query }),
+    comments: t.relation('comments')
   })
-);
+})
+
+builder.queryField('users', (t) =>
+  t.prismaField({
+    type: ['User'],
+    resolve: (query) => prisma.user.findMany({ ...query })
+  })
+)

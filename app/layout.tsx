@@ -1,15 +1,17 @@
-"use client";
+'use client'
 
-import Navbar from "@/components/navbar/navbar";
-import ApolloProvider from "@/lib/apollo-client/apollo-provider";
-import "./globals.css";
-import "/node_modules/flag-icons/css/flag-icons.min.css";
-import { AnalyticsWrapper } from "./components/analytics";
+import './globals.css'
+import '@/node_modules/flag-icons/css/flag-icons.min.css'
+
+import Navbar from '@/components/navbar/navbar'
+import ApolloProvider from '@/lib/apollo-client/apollo-provider'
+
+import { AnalyticsWrapper } from './components/analytics'
 
 export default function RootLayout({
-  children,
+  children
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html lang="en">
@@ -32,5 +34,5 @@ export default function RootLayout({
         </ApolloProvider>
       </body>
     </html>
-  );
+  )
 }

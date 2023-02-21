@@ -1,11 +1,11 @@
-"use client";
+'use client'
 
-import { Roboto_Mono } from "@next/font/google";
-import Link from "next/link";
+import { Roboto_Mono } from '@next/font/google'
+import Link from 'next/link'
 
 const robotoHeading = Roboto_Mono({
-  subsets: ["latin"],
-});
+  subsets: ['latin']
+})
 
 export default function Home() {
   return (
@@ -25,16 +25,16 @@ export default function Home() {
             <span className="relative px-5 py-2.5 transition-all ease-in duration-75  bg-gray-900 rounded-md group-hover:bg-opacity-0">
               See my posts
             </span>
-          </button>{" "}
+          </button>{' '}
         </Link>
         <Link href="/projects">
           <button className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium  rounded-lg group bg-gradient-to-br from-teal-300 to-lime-300 group-hover:from-teal-300 group-hover:to-lime-300 text-white hover:text-gray-900 focus:ring-4 focus:outline-none  focus:ring-lime-800">
             <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-gray-900 rounded-md group-hover:bg-opacity-0">
               See my projects
             </span>
-          </button>{" "}
+          </button>{' '}
         </Link>
       </div>
     </main>
-  );
+  )
 }

@@ -1,13 +1,13 @@
-import { usePathname } from "next/navigation";
+import { usePathname } from 'next/navigation'
 
 export default function useGetPath() {
-  const pathname = usePathname();
+  const pathname = usePathname()
 
   const pathnameWithoutLocale = pathname
-    ?.split("en")
+    ?.split('en')
     ?.at(0)
-    ?.split("pt-BR")
-    .at(0);
+    ?.split('pt-BR')
+    .at(0)
 
-  return pathnameWithoutLocale;
+  return pathnameWithoutLocale
 }

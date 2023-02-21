@@ -1,9 +1,9 @@
 export default function NavbarSearch({
   open,
-  toggle,
+  toggle
 }: {
-  open: boolean;
-  toggle;
+  open: boolean
+  toggle
 }) {
   return (
     <>
@@ -86,5 +86,5 @@ export default function NavbarSearch({
         </div>
       ) : null}
     </>
-  );
+  )
 }

@@ -5,7 +5,7 @@ export default function About() {
         Who am I
       </h1>
       <p className="mb-3 font-light text-gray-400">
-        Hey, I'm Bruno, I am a software developer and I am currently working at{" "}
+        Hey, I'm Bruno, I am a software developer and I am currently working at{' '}
         <a
           href="https://smarthis.com/en"
           target="_blank"
@@ -13,7 +13,7 @@ export default function About() {
           className="font-medium text-blue-500 hover:underline"
         >
           Smarthis
-        </a>{" "}
+        </a>{' '}
         as a frontend lead developer.
       </p>
       <p className="mb-3 font-light text-gray-400">
@@ -41,5 +41,5 @@ export default function About() {
         Thanks a lot for stopping by, I hope you enjoy the content.
       </p>
     </main>
-  );
+  )
 }

@@ -1,55 +1,57 @@
-"use client";
+'use client'
 
-import useGetPath from "@/hooks/useGetPath";
-import { isLinkActive } from "@/lib/utils";
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import LanguageDropdown from "./LanguageDropdown";
-import NavbarSearch from "./searchNavbar";
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
+
+import useGetPath from '@/hooks/useGetPath'
+import { isLinkActive } from '@/lib/utils'
+
+import LanguageDropdown from './LanguageDropdown'
+import NavbarSearch from './searchNavbar'
 
 export default function Navbar() {
-  const currPath = useGetPath();
+  const currPath = useGetPath()
 
-  const [isMobile, setIsMobile] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
 
-  console.log({ isMobile, isMenuOpen, isSearchOpen });
+  console.log({ isMobile, isMenuOpen, isSearchOpen })
 
   // create an effect that check if user is on mobile and set the state
   useEffect(() => {
-    const isMobile = window.innerWidth <= 768;
-    setIsMobile(isMobile);
-  }, []);
+    const isMobile = window.innerWidth <= 768
+    setIsMobile(isMobile)
+  }, [])
 
-  console.log({ isMobile });
+  console.log({ isMobile })
 
   const menuItems = [
     {
-      label: "Home",
-      link: "/",
+      label: 'Home',
+      link: '/'
     },
     {
-      label: "Projects",
-      link: "/projects",
+      label: 'Projects',
+      link: '/projects'
     },
     {
-      label: "Blog",
-      link: "/posts",
+      label: 'Blog',
+      link: '/posts'
     },
     {
-      label: "About",
-      link: "/about",
-    },
-  ];
+      label: 'About',
+      link: '/about'
+    }
+  ]
 
   const activeLinkClasses =
-    "bg-blue md:bg-transparent md:text-blue-700 md:p-0 text-white md:hover:text-white";
+    'bg-blue md:bg-transparent md:text-blue-700 md:p-0 text-white md:hover:text-white'
   const nonActiveClasses =
-    " md:hover:text-blue-700 md:p-0 md:hover:text-white text-gray-400 hover:text-white md:hover:bg-transparent border-gray-700";
+    ' md:hover:text-blue-700 md:p-0 md:hover:text-white text-gray-400 hover:text-white md:hover:bg-transparent border-gray-700'
 
-  const isToShowMenu = isMobile ? isMenuOpen : true;
-  const isToShowSearch = isMobile ? isSearchOpen : true;
+  const isToShowMenu = isMobile ? isMenuOpen : true
+  const isToShowSearch = isMobile ? isSearchOpen : true
 
   return (
     <nav className="border-gray-200 px-2 sm:px-4 py-2.5 rounded bg-gray-900">
@@ -88,7 +90,7 @@ export default function Navbar() {
               <Link
                 href={item.link}
                 className={`block py-2 pl-3 pr-4 rounded ${
-                  isLinkActive(item.link, currPath || "")
+                  isLinkActive(item.link, currPath || '')
                     ? activeLinkClasses
                     : nonActiveClasses
                 }`}
@@ -102,5 +104,5 @@ export default function Navbar() {
         <LanguageDropdown />
       </div>
     </nav>
-  );
+  )
 }
