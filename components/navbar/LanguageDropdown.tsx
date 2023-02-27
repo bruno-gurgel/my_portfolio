@@ -15,6 +15,7 @@ export default function LanguageDropdown() {
   const { styles, attributes } = usePopper(referenceElement, popperElement)
 
   const currPath = usePathname()
+  const currLang = currPath.split('/')[1]
 
   const languagesDropdown = [
     {
@@ -28,10 +29,6 @@ export default function LanguageDropdown() {
       locale: 'pt-BR'
     }
   ]
-
-  // const currLang = languagesDropdown.find((lang) => lang.locale === language);
-  const currLang = languagesDropdown[0]
-  // console.log({ currLang, language, rest });
 
   return (
     <div className="flex items-center md:order-3 order-3 z-10  ml-auto md:ml-0">

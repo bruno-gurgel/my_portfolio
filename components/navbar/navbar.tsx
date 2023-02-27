@@ -16,15 +16,11 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
 
-  console.log({ isMobile, isMenuOpen, isSearchOpen })
-
   // create an effect that check if user is on mobile and set the state
   useEffect(() => {
     const isMobile = window.innerWidth <= 768
     setIsMobile(isMobile)
   }, [])
-
-  console.log({ isMobile })
 
   const menuItems = [
     {
