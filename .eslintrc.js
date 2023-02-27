@@ -36,7 +36,6 @@ module.exports = {
       rules: {
         'consistent-return': 'off',
         '@typescript-eslint/no-shadow': 'off',
-        'no-console': 'off',
         'no-restricted-syntax': 'off',
         'prettier/prettier': [
           'error',
