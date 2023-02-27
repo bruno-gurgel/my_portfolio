@@ -2,15 +2,22 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { fetchStripe } from '@/lib/fetcher'
-import { ApiArticleArticle, ApiCategoryCategory } from '@/lib/schemas'
 import { capitalize } from '@/lib/utils'
 
-export default async function Posts() {
-  const query = await fetchStripe(`/articles?_locale=pt-BR`)
-  const categoriesquery = await fetchStripe('/categories')
+export default async function CategorySlug({
+  params
+}: {
+  params: { slug: string }
+}) {
+  const { slug } = params
+  const language = 'en'
 
-  const posts: ApiArticleArticle[] = query.data
-  const categories: ApiCategoryCategory[] = categoriesquery.data
+  const query = await fetchStripe(
+    `/articles?filter[category][slug]=${slug}&_locale=${language} `
+  )
+  const categoriesQuery = await fetchStripe('/categories')
+  const categories = categoriesQuery.data
+  const posts = query.data
 
   return (
     <main className="p-5 flex flex-row content-center md:pl-60 md:pr-60 gap-32">
@@ -19,7 +26,7 @@ export default async function Posts() {
         <div className="w-48 text-sm font-medium  border  rounded-lg bg-gray-700 border-gray-600 text-white">
           <Link
             href="/posts"
-            className="block w-full px-4 py-2 text-white  border-b  rounded-t-lg cursor-pointer bg-gray-800 border-gray-600"
+            className="block w-full px-4 py-2 border-b cursor-pointer   focus:outline-none focus:ring-2  border-gray-600 hover:bg-gray-600 hover:text-white focus:ring-gray-500 focus:text-white"
           >
             All
           </Link>
@@ -27,7 +34,11 @@ export default async function Posts() {
             <Link
               key={category.attributes.id}
               href={`/posts/categories/${category.attributes.slug}`}
-              className="block w-full px-4 py-2 border-b cursor-pointer   focus:outline-none focus:ring-2  border-gray-600 hover:bg-gray-600 hover:text-white focus:ring-gray-500 focus:text-white"
+              className={
+                category.attributes.slug === slug
+                  ? 'block w-full px-4 py-2 text-white  border-b  rounded-t-lg cursor-pointer bg-gray-800 border-gray-600'
+                  : 'block w-full px-4 py-2 border-b cursor-pointer   focus:outline-none focus:ring-2  border-gray-600 hover:bg-gray-600 hover:text-white focus:ring-gray-500 focus:text-white'
+              }
             >
               {capitalize(category.attributes.name)}
             </Link>
