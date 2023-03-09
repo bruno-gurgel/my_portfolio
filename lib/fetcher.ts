@@ -42,11 +42,11 @@ export function getStrapiMedia(media: {
   return imageUrl
 }
 
-export async function fetchStripe(
+export async function fetchStripe<T>(
   path: string,
   urlParamsObject = {},
   options = {}
-) {
+): Promise<T> {
   const data = await fetcher(getStrapiURL(path), urlParamsObject, options)
   return data
 }

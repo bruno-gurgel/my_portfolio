@@ -2,15 +2,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { fetchStripe } from '@/lib/fetcher'
-import { ApiArticleArticle, ApiCategoryCategory } from '@/lib/schemas'
 import { capitalize } from '@/lib/utils'
+import { CategoryQuery, PostsQuery } from '@/ts/strapiTypes'
 
 export default async function Posts() {
-  const query = await fetchStripe(`/articles?_locale=pt-BR`)
-  const categoriesquery = await fetchStripe('/categories')
+  const query = await fetchStripe<PostsQuery>(`/articles?_locale=pt-BR`)
+  const categoriesquery = await fetchStripe<CategoryQuery>('/categories')
 
-  const posts: ApiArticleArticle[] = query.data
-  const categories: ApiCategoryCategory[] = categoriesquery.data
+  const posts = query.data
+  const categories = categoriesquery.data
 
   return (
     <main className="p-5 flex flex-row content-center md:pl-60 md:pr-60 gap-32">
@@ -25,7 +25,7 @@ export default async function Posts() {
           </Link>
           {categories.map((category) => (
             <Link
-              key={category.attributes.id}
+              key={category.id}
               href={`/posts/categories/${category.attributes.slug}`}
               className="block w-full px-4 py-2 border-b cursor-pointer   focus:outline-none focus:ring-2  border-gray-600 hover:bg-gray-600 hover:text-white focus:ring-gray-500 focus:text-white"
             >

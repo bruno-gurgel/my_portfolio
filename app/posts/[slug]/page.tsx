@@ -1,26 +1,17 @@
 import Markdown from '@/components/markdown/Markdown'
 import { fetchStripe } from '@/lib/fetcher'
 import { formatDate } from '@/lib/utils'
+import { SinglePostQuery } from '@/ts/strapiTypes'
 
 export default async function Slug({ params }: { params: { slug: string } }) {
-  const articleQuery = await fetchStripe('/articles', {
+  const articleQuery = await fetchStripe<SinglePostQuery>('/articles', {
     filters: {
       slug: params.slug
     },
     populate: ['image', 'category', 'author.picture']
   })
-  const article = articleQuery.data.at(0)
 
-  // const categories = await fetchStripe('/categories')
-
-  // const imageUrl = getStrapiMedia(article.attributes.image)
-
-  // const seo = {
-  // metaTitle: article.attributes.title,
-  // metaDescription: article.attributes.description,
-  // shareImage: article.attributes.image,
-  // article: true
-  // }
+  const article = articleQuery.data.at(0)!
 
   return (
     <>

@@ -3,7 +3,7 @@ export default function NavbarSearch({
   toggle
 }: {
   open: boolean
-  toggle
+  toggle: () => void
 }) {
   return (
     <>

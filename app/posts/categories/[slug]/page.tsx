@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import { fetchStripe } from '@/lib/fetcher'
 import { capitalize } from '@/lib/utils'
+import { CategoryQuery, PostsByCategoryQuery } from '@/ts/strapiTypes'
 
 export default async function CategorySlug({
   params
@@ -12,10 +13,10 @@ export default async function CategorySlug({
   const { slug } = params
   const language = 'en'
 
-  const query = await fetchStripe(
+  const query = await fetchStripe<PostsByCategoryQuery>(
     `/articles?filter[category][slug]=${slug}&_locale=${language} `
   )
-  const categoriesQuery = await fetchStripe('/categories')
+  const categoriesQuery = await fetchStripe<CategoryQuery>('/categories')
   const categories = categoriesQuery.data
   const posts = query.data
 
@@ -32,15 +33,15 @@ export default async function CategorySlug({
           </Link>
           {categories.map((category) => (
             <Link
-              key={category.attributes.id}
+              key={category.id}
               href={`/posts/categories/${category.attributes.slug}`}
               className={
-                category.attributes.slug === slug
+                (category.attributes.slug as unknown as string) === slug
                   ? 'block w-full px-4 py-2 text-white  border-b  rounded-t-lg cursor-pointer bg-gray-800 border-gray-600'
                   : 'block w-full px-4 py-2 border-b cursor-pointer   focus:outline-none focus:ring-2  border-gray-600 hover:bg-gray-600 hover:text-white focus:ring-gray-500 focus:text-white'
               }
             >
-              {capitalize(category.attributes.name)}
+              {capitalize(category.attributes.name as unknown as string)}
             </Link>
           ))}
         </div>

@@ -13,7 +13,6 @@ export default function Navbar() {
   const currPath = useGetPath()
 
   const [isMobile, setIsMobile] = useState(false)
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
 
   // create an effect that check if user is on mobile and set the state
@@ -46,7 +45,6 @@ export default function Navbar() {
   const nonActiveClasses =
     ' md:hover:text-blue-700 md:p-0 md:hover:text-white text-gray-400 hover:text-white md:hover:bg-transparent border-gray-700'
 
-  const isToShowMenu = isMobile ? isMenuOpen : true
   const isToShowSearch = isMobile ? isSearchOpen : true
 
   return (
