@@ -44,7 +44,6 @@
   },
   "devDependencies": {
     "@graphql-codegen/client-preset": "^1.2.6",
-    "@strapi/strapi": "^4.6.1",
     "@types/node": "^18.11.18",
     "@types/qs": "^6.9.7",
     "@types/react": "18.0.27",
