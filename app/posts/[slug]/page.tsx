@@ -1,5 +1,3 @@
-import Error from 'next/error'
-
 import Markdown from '@/components/markdown/Markdown'
 import { fetchStripe } from '@/lib/fetcher'
 import { formatDate } from '@/lib/utils'
@@ -16,7 +14,7 @@ export default async function Slug({ params }: { params: { slug: string } }) {
   const article = articleQuery.data.length > 0 ? articleQuery.data.at(0) : null
 
   if (!article) {
-    return <Error statusCode={404} />
+    return <div>Error</div>
   }
 
   return (
