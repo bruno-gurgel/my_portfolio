@@ -16,7 +16,6 @@
     "@graphql-codegen/cli": "^2.16.4",
     "@graphql-typed-document-node/core": "^3.1.1",
     "@graphql-yoga/plugin-disable-introspection": "^0.7.0",
-    "@graphql-yoga/plugin-persisted-operations": "^1.8.0",
     "@next/font": "13.1.5",
     "@popperjs/core": "^2.11.6",
     "@pothos/core": "^3.24.0",
