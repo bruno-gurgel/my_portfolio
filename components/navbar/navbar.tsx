@@ -7,7 +7,6 @@ import useGetPath from '@/hooks/useGetPath'
 import { isLinkActive } from '@/lib/utils'
 
 import LanguageDropdown from './LanguageDropdown'
-import NavbarSearch from './searchNavbar'
 
 export default function Navbar() {
   const currPath = useGetPath()
@@ -26,10 +25,10 @@ export default function Navbar() {
       label: 'Home',
       link: '/'
     },
-    {
-      label: 'Projects',
-      link: '/projects'
-    },
+    // {
+    // label: 'Projects',
+    // link: '/projects'
+    // },
     {
       label: 'Blog',
       link: '/posts'
@@ -45,15 +44,15 @@ export default function Navbar() {
   const nonActiveClasses =
     ' md:hover:text-blue-700 md:p-0 md:hover:text-white text-gray-400 hover:text-white md:hover:bg-transparent border-gray-700'
 
-  const isToShowSearch = isMobile ? isSearchOpen : true
+  // const isToShowSearch = isMobile ? isSearchOpen : true
 
   return (
     <nav className="border-gray-200 px-2 sm:px-4 py-2.5 rounded bg-gray-900">
       <div className="container flex flex-wrap items-center md:justify-between mx-auto">
-        <NavbarSearch
+        {/* }<NavbarSearch
           open={isToShowSearch}
           toggle={() => setIsSearchOpen(!isSearchOpen)}
-        />
+        /> */}
 
         <button
           data-dropdown-toggle="navbar-menu"
