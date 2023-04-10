@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
 
 import useGetPath from '@/hooks/useGetPath'
 import { isLinkActive } from '@/lib/utils'
@@ -11,14 +10,14 @@ import LanguageDropdown from './LanguageDropdown'
 export default function Navbar() {
   const currPath = useGetPath()
 
-  const [isMobile, setIsMobile] = useState(false)
-  const [isSearchOpen, setIsSearchOpen] = useState(false)
+  // const [isMobile, setIsMobile] = useState(false)
+  // const [isSearchOpen, setIsSearchOpen] = useState(false)
 
   // create an effect that check if user is on mobile and set the state
-  useEffect(() => {
-    const isMobile = window.innerWidth <= 768
-    setIsMobile(isMobile)
-  }, [])
+  // useEffect(() => {
+  // const isMobile = window.innerWidth <= 768
+  // setIsMobile(isMobile)
+  // }, [])
 
   const menuItems = [
     {
