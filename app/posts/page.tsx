@@ -13,7 +13,7 @@ export default async function Posts() {
   const categories = categoriesquery.data
 
   return (
-    <main className="p-5 flex flex-row content-center md:pl-60 md:pr-60 gap-32">
+    <main className="p-5 flex md:flex-row flex-col content-center md:pl-60 md:pr-60 gap-16 md:gap-32">
       <div className="flex flex-col gap-4">
         <h2 className="text-2xl font-bold">Categories</h2>
         <div className="w-48 text-sm font-medium  border  rounded-lg bg-gray-700 border-gray-600 text-white">

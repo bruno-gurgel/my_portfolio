@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <main className="md:pt-32 md:pl-32 md:pr-80 pt-10 pl-10">
+    <main className="md:pt-32 md:pl-32 md:pr-80 pt-10 pl-10 px-10 md:px-0">
       <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight  md:text-5xl lg:text-6xl text-white">
         Who am I
       </h1>

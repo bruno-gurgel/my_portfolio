@@ -10,7 +10,7 @@ const robotoHeading = Roboto_Mono({
 export default function Home() {
   return (
     <main>
-      <div className="flex flex-col mt-48 ml-48 h-full items-start">
+      <div className="flex flex-col mt-48 text-center md:ml-48 h-full items-center px-10 md:px-0 md:items-start">
         <h1
           className={`${robotoHeading.className} mb-4 text-4xl font-extrabold leading-none tracking-tight  md:text-5xl lg:text-6xl :text-white `}
         >
